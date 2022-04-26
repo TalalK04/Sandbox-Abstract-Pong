@@ -4,8 +4,8 @@ int appWidth, appHeight;
 void display() {
   //Display Orientation: Landscape, not portrait nor square
   println(width, height, displayWidth, displayHeight);
-  int appWidth = width;
-  int appHeight = height;
+  appWidth = width;
+  appHeight = height;
 
   String ls = "Landscape", p = "portrait", DO = "Display Orientation", instruct = "Turn your phone";
   String orientation = (appWidth >= appHeight) ? ls : p ; //repeats IF-ELSE Structure
