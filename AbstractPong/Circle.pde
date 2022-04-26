@@ -3,7 +3,7 @@ class Circle extends Shape {
   //Global Varibales
 
   //Constructor
-  Circle(float x, float y, float w , float h) {
+  Circle(float x, float y, float w, float h) {
     super(x, y, w, h);
   }//end Constructor
 

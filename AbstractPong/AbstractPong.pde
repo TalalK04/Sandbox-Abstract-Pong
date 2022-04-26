@@ -1,14 +1,16 @@
 //Global Variables & Other Items (Classes)
- 
+Circle c;
+
 void setup() {
-  size(900, 1000);
+  size(1100, 1000);
   display();
-  int yDiameter;
-  int xDiameter = yDiameter = appWidth*1/4;
+  int yDiameter = appWidth*1/4;
+  int xDiameter = appWidth*1/4;
   Circle c = new Circle(appWidth*1/2, appHeight*1/2, xDiameter, yDiameter);
 }//end setup
 
 void draw() {
+  this.draw();
 }//end draw
 
 void keyPressed() {
