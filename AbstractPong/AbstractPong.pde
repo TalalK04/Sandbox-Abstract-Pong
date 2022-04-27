@@ -4,10 +4,10 @@ Rectangle rLeft;
 Rectangle rRight;
 
 void setup() {
-  size(1100, 1000);
+  size(1200, 1000);
   display();
-  int yDiameter = appWidth*1/25;
-  int xDiameter = appWidth*1/25;
+  int yDiameter = appWidth*1/30;
+  int xDiameter = appWidth*1/30;
   int rectWidth = appWidth*1/40;
   int rectHeight = appHeight*1/2;
   c = new Circle(appWidth*1/2, appHeight*1/2, xDiameter, yDiameter);
@@ -17,6 +17,7 @@ void setup() {
 
 void draw() {
   background(0);
+  
   c.draw();
   rLeft.draw();
   rRight.draw();

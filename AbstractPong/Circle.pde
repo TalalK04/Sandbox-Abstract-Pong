@@ -3,6 +3,7 @@ class Circle extends Shape {
   //Global Varibales
   int xSpeed, ySpeed;
   color colour, resetNightMode;
+  boolean leftGoal = false, rightGoal = false;
 
   //Constructor
   Circle(float x, float y, float w, float h) {
@@ -19,6 +20,7 @@ class Circle extends Shape {
     ellipse(x, y, w, h);
     move();
     bounce();
+    Goal();
   }//end draw
 
   void move() {
@@ -43,17 +45,28 @@ class Circle extends Shape {
   }//end Bounce
 
   void Goal() {
-    if (x > rRight.x + (rRight.w)) {
-      xSpeed = 0;
+    if (rightGoal == true) {
+      x = (width - (w*2/3));
       ySpeed = 0;
-      x = width - w*1/2;
-      y = y;
+      xSpeed = 0; 
+    } else rightGoal = false; 
+     
+    
+    if (leftGoal == true) {
+      x = (width*0 + (w*2/3)); 
+      ySpeed = 0;
+      xSpeed = 0;
+    } else leftGoal = false;
+    
+    if ( (x+w*1/2) > width) {
+      rightGoal = true;
+      //x = width - (w*1/2);
+      //y = y;
     } 
-    if (x < rLeft.x ) {
-      xSpeed = 0;
-      ySpeed = 0;
-      x = width*0 + w*1/2;
-      y = y;
+    if ( (x+w*1/2) < width*0 ) {
+      leftGoal = true;
+      //x = (width*0) + w*1/2;
+      //y = y;
     }
   }
 }//end Circle
