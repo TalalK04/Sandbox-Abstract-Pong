@@ -13,4 +13,10 @@ abstract class Shape {
     this.h = h;
   }//end Constructor
   //Methods
+  abstract void draw(); 
+  //Mandatory, references extended classes
+  //Note: no braces, code in extended classes
+  //Any other procedures common to all extended classes
+  //Must be declared here, like draw();
+
 }// end Shape
