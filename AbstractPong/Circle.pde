@@ -1,7 +1,7 @@
 //class is always UPPER CASE
 class Circle extends Shape {
   //Global Varibales
-  int xSpeed, ySpeed;
+  int xSpeed, ySpeed, xDirection, yDirection;
   color colourDayMode, resetNightMode;
   boolean leftGoal = false, rightGoal = false;
 
@@ -12,11 +12,13 @@ class Circle extends Shape {
     resetNightMode = resetNightParameter;//color(int (random(100, 255)), int (random(50, 255)), 0);
     while (xSpeed>-4 && xSpeed<4) xSpeed = int(random( -5, 5));
     while (ySpeed>-4 && ySpeed<4) ySpeed = int(random( -5, 5));
+    xDirection = int ( random (width/width, width/width*5) );
+    yDirection = int ( random (height/height, height/height*5) );
   }//end Constructor
 
   //Methods
   void draw() {
-    fill(colour);
+    fill(colourDayMode);
     ellipse(x, y, w, h);
     move();
     bounce();
@@ -24,8 +26,8 @@ class Circle extends Shape {
   }//end draw
 
   void move() {
-    x += xSpeed;
-    y += ySpeed;
+    x += xSpeed*xDirection;
+    y += ySpeed*yDirection;
   }
 
   void bounce() {
@@ -48,16 +50,16 @@ class Circle extends Shape {
     if (rightGoal == true) {
       x = (width - (w*2/3));
       ySpeed = 0;
-      xSpeed = 0; 
+      xSpeed = 0;
     } else rightGoal = false; 
-     
-    
+
+
     if (leftGoal == true) {
       x = (width*0 + (w*2/3)); 
       ySpeed = 0;
       xSpeed = 0;
     } else leftGoal = false;
-    
+
     if ( (x+w*1/2) > width) {
       rightGoal = true;
       //x = width - (w*1/2);
