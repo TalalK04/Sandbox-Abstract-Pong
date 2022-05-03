@@ -70,5 +70,12 @@ class Circle extends Shape {
       //x = (width*0) + w*1/2;
       //y = y;
     }
+  }//end Goal
+
+  color DayModeGetter() {
+    return colourDayMode;
+  }
+  color resetNightModeGetter() {
+    return resetNightMode;
   }
 }//end Circle
