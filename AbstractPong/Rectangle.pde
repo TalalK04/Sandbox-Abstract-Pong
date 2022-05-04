@@ -19,6 +19,7 @@ class Rectangle extends Shape {
     if (moveDown = true) y += paddleSpd;
     fill(colourDayMode);
     rect(x, y, w, h);
+    fill(resetNightMode);
   }//end draw
 
   float xGetter() {
@@ -36,7 +37,7 @@ class Rectangle extends Shape {
   color DayModeGetter() {
     return colourDayMode;
   }
-  color resetNightModeGetter() {
+  color resetNightModeGetter(){
     return resetNightMode;
   }
 
@@ -52,4 +53,8 @@ class Rectangle extends Shape {
     moveUp = false;
     moveDown = false;
   }//end stopPaddle
+
+  //Common Methods
+  void bounce() {
+  }//end bounce
 }//end Rectangle

@@ -1,23 +1,45 @@
 //Global Variables & Other Items (Classes)
 ArrayList<Shape> shapes = new ArrayList<Shape>();
+boolean showInstructions = false;
 //Annonoymous Class, one time object
 Shape instructions = new Shape (0, 0, 300, 300) {
-//Global Variables
-//No Constructor Needed
-void draw() {
-  fill(#FFFFFF); //white
-  rect(x, y, w, h); //background for instructions menu
-  //Text Code Here
-  fill(#FFFFFF); //reset white
-}//end draw
-//Methods for Possible Text Drawing
+  //Global Variables
+  color colourDayMode, resetNightMode;
+  //No Constructor Needed
+  void draw() {
+    fill(#FFFFFF); //white
+    rect(x, y, w, h); //background for instructions menu
+    //Text Code Here
+    fill(#FFFFFF); //reset white
+  }//end draw
+  //Methods for Possible Text Drawing
+  void bounce() {
+  }
+  float xGetter() {
+    return x;
+  }
+  float yGetter() {
+    return y;
+  }
+  float wGetter() {
+    return w;
+  }
+  float hGetter() {
+    return h;
+  }
+  color DayModeGetter() {
+    return colourDayMode;
+  }
+  color resetNightModeGetter() {
+    return resetNightMode;
+  }
 }
 ; //Necessary Code
 void setup() {
   size(1200, 1000);
   display();
   //Local Variables & Object Setup
-  
+
   //Instructions, Features, and Hints for Easter Eggs
   shapes.add(instructions); //Element 0
   //Paddles and Ball
@@ -44,46 +66,62 @@ void setup() {
 
 void draw() {
   background(0);
-  for (Shape s : shapes) {
-    s.draw();
+  //for (Shape s : shapes) {
+  //  s.draw();
+  //}
+  if (showInstructions == true) {
+    shapes.get(0).draw();
+  } 
+  if (showInstructions == false) {
+    shapes.get(3).bounce();
   }
-  //shapes.get(i).draw();
-}//end draw
 
+  for ( int i=1; i<shapes.size(); i++ ) {
+    shapes.get(i).draw();
+    println("here", i);
+  }
+}//end draw
+//Annonymous Class
 void keyPressed() {
   //Instructions: Instructions, Features, and Hints for easter Eggs
-    if (key == CODED && key == 'I' || key == 'i') {
-      shapes.get(0).draw(); //Annonymous Class
-    } 
+  if ((key == CODED && key == 'I' || key == 'i') && (showInstructions == false)) {
+    showInstructions = true;
+  } 
   //Note: .remove & .add combined in .set 
-  
+
   //LeftPaddleMove (0)
-  Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).restNightModeGetter());
-    if (key == CODED && key == 'W' || key == 'w') {
+  //Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
+  if (key == CODED && key == 'W' || key == 'w') {
     //shapes.get(0)
+    Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
     paddleLeft.moveUp();
     shapes.set(1, paddleLeft);
   }//end LeftUp
   if (key == CODED && key == 'S' || key == 's') {
+    Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
     paddleLeft.moveDown();
     shapes.set(1, paddleLeft);
   }//end LeftDown
   if (key == CODED && key == 'D' || key == 'D') {
+    Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
     paddleLeft.stopPaddle();
     shapes.set(1, paddleLeft);
   }//end LeftStop
 
   //RightPaddleMove (1)
-  Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).restNightModeGetter());
-    if (key == CODED && keyCode == UP) {
+  //Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
+  if (key == CODED && keyCode == UP) {
+    Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
     paddleRight.moveUp();
     shapes.set(2, paddleRight);
   }
   if (key == CODED && keyCode == DOWN) {
+    Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
     paddleRight.moveDown();
     shapes.set(2, paddleRight);
   }
   if (key == CODED && keyCode == LEFT) {
+    Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
     paddleRight.stopPaddle();
     shapes.set(2, paddleRight);
   }

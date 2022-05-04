@@ -8,10 +8,10 @@ class Circle extends Shape {
   //Constructor
   Circle(float x, float y, float w, float h, color colourDayParameter, color resetNightParameter) {
     super(x, y, w, h);
-    colourDayMode = colourDayParameter;//color(int (random(100, 255)), int (random(50, 255)), int (random(175, 255)));
-    resetNightMode = resetNightParameter;//color(int (random(100, 255)), int (random(50, 255)), 0);
-    while (xSpeed>-4 && xSpeed<4) xSpeed = int(random( -5, 5));
-    while (ySpeed>-4 && ySpeed<4) ySpeed = int(random( -5, 5));
+    this.colourDayMode = colourDayParameter;//color(int (random(100, 255)), int (random(50, 255)), int (random(175, 255)));
+    this.resetNightMode = resetNightParameter;//color(int (random(100, 255)), int (random(50, 255)), 0);
+    while (xSpeed>-2 && xSpeed<2) xSpeed = int(random( -3, 3));
+    while (ySpeed>-2 && ySpeed<2) ySpeed = int(random( -3, 3));
     xDirection = int ( random (width/width, width/width*5) );
     yDirection = int ( random (height/height, height/height*5) );
   }//end Constructor
@@ -20,6 +20,7 @@ class Circle extends Shape {
   void draw() {
     fill(colourDayMode);
     ellipse(x, y, w, h);
+    fill(resetNightMode);
     move();
     bounce();
     Goal();
@@ -29,22 +30,6 @@ class Circle extends Shape {
     x += xSpeed*xDirection;
     y += ySpeed*yDirection;
   }
-
-  void bounce() {
-    //bounceWall
-    if (y-w*1/2 < height*0 || y+h*1/2 > height) ySpeed *= -1; //Top and Bottom 
-    //
-    //Left bouncePaddle
-    if ((x <= shapes.get(0).x + (shapes.get(0).w + w*1/2)) && ((y >= shapes.get(0).y) && (y <= (shapes.get(0).y + shapes.get(0).h)))) {
-      xSpeed *= -1;
-    }
-    //
-    //Right bouncePaddle
-    if ((x >=  shapes.get(1).x - (w*1/2)) && ((y >=  shapes.get(1).y) && (y <= ( shapes.get(1).y + shapes.get(1).h)))) {
-      xSpeed*=-1;
-    }
-    //
-  }//end Bounce
 
   void Goal() {
     if (rightGoal == true) {
@@ -72,10 +57,38 @@ class Circle extends Shape {
     }
   }//end Goal
 
+  float xGetter() {
+    return x;
+  }
+  float yGetter() {
+    return y;
+  }
+  float wGetter() {
+    return w;
+  }
+  float hGetter() {
+    return h;
+  }
   color DayModeGetter() {
     return colourDayMode;
   }
   color resetNightModeGetter() {
     return resetNightMode;
   }
+
+  void bounce() {
+    //bounceWall
+    if (y-w*1/2 < height*0 || y+h*1/2 > height) ySpeed *= -1; //Top and Bottom 
+    //
+    //Left bouncePaddle
+    if ((x <= shapes.get(1).x + (shapes.get(1).w + w*1/2)) && ((y >= shapes.get(1).y) && (y <= (shapes.get(1).y + shapes.get(1).h)))) {
+      xSpeed *= -1;
+    }
+    //
+    //Right bouncePaddle
+    if ((x >=  shapes.get(2).x - (w*1/2)) && ((y >=  shapes.get(2).y) && (y <= ( shapes.get(2).y + shapes.get(2).h)))) {
+      xSpeed*=-1;
+    }
+    //
+  }//end Bounce
 }//end Circle

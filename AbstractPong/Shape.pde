@@ -18,6 +18,11 @@ abstract class Shape {
   //Note: no braces, code in extended classes
   //Any other procedures common to all extended classes
   //Must be declared here, like draw();
-  abstract color colourDayModeGetter();
+  abstract void bounce();
+  abstract float xGetter();
+  abstract float yGetter();
+  abstract float wGetter();
+  abstract float hGetter();
+  abstract color DayModeGetter();
   abstract color resetNightModeGetter();
 }// end Shape
