@@ -2,7 +2,7 @@
 class Circle extends Shape {
   //Global Varibales
   int xSpeed, ySpeed, xDirection, yDirection;
-  color colourDayMode, resetNightMode;
+  color colourDayMode, resetNightMode, colourScoreBoard;
   boolean leftGoal = false, rightGoal = false;
 
   //Constructor
@@ -14,6 +14,7 @@ class Circle extends Shape {
     while (ySpeed>-2 && ySpeed<2) ySpeed = int(random( -3, 3));
     xDirection = int ( random (width/width, width/width*5) );
     yDirection = int ( random (height/height, height/height*5) );
+  
   }//end Constructor
 
   //Methods

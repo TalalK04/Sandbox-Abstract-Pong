@@ -1,6 +1,6 @@
 //Global Variables & Other Items (Classes)
 ArrayList<Shape> shapes = new ArrayList<Shape>();
-boolean showInstructions = false;
+boolean showInstructions = true;
 //Annonoymous Class, one time object
 Shape instructions = new Shape (0, 0, 300, 300) {
   //Global Variables
@@ -47,6 +47,8 @@ void setup() {
   int xDiameter = appWidth*1/30;
   int rectWidth = appWidth*1/40;
   int rectHeight = appHeight*1/2;
+  //int scoreWidth = appWidth*1/8;
+  //int scoreHeight = appHeight*1/8;
   int colourDayRectLeft = color(int (random(100, 255)), int (random(50, 255)), int (random(175, 255)));
   int colourNightRectLeft = color(int (random(100, 255)), int (random(50, 255)), 0);
   int colourDayRectRight = color(int (random(100, 255)), int (random(50, 255)), int (random(175, 255)));
@@ -56,10 +58,14 @@ void setup() {
   Circle c = new Circle(appWidth*1/2, appHeight*1/2, xDiameter, yDiameter, colourDayBall, colourNightBall);
   Rectangle rLeft = new Rectangle(appWidth*1/40, appHeight*1/4, rectWidth, rectHeight, colourDayRectLeft, colourNightRectLeft);
   Rectangle rRight = new Rectangle(appWidth*38/40, appHeight*1/4, rectWidth, rectHeight, colourDayRectRight, colourNightRectRight);
+  //Rectangle rightScore = new Rectangle(appWidth*1/8, appHeight*0, scoreWidth, scoreHeight, colourDayRectRight, colourNightRectRight);
+  //Rectangle leftScore = new Rectangle(appWidth*3/4, appHeight*0, scoreWidth, scoreHeight, colourDayRectRight, colourNightRectRight);
   //Shapes Global Variable, Shapes will not change
   shapes.add(rLeft); //Element 1, Left Paddle
   shapes.add(rRight); //Element 2, Right Paddle
   shapes.add(c); //Element 3, Pong BALL
+  //shapes.add(rightScore); //Element 4, rightSocre
+  //shapes.add(leftScore); //Element 5, leftSocre
 
   //Reminder: ALL local objects are deleted, "Garbage Heap collected"
 }//end setup
@@ -72,38 +78,39 @@ void draw() {
   if (showInstructions == true) {
     shapes.get(0).draw();
   } 
-  if (showInstructions == false) {
-    shapes.get(3).bounce();
-  }
 
   for ( int i=1; i<shapes.size(); i++ ) {
-    shapes.get(i).draw();
-    println("here", i);
+    if (showInstructions == false) {
+      shapes.get(i).draw();
+      println("here", i);
+    }
   }
 }//end draw
 //Annonymous Class
 void keyPressed() {
   //Instructions: Instructions, Features, and Hints for easter Eggs
+
+  if ((key == CODED && key == 'P' || key == 'p') && (showInstructions == true)) {
+    showInstructions = false;
+  }  
   if ((key == CODED && key == 'I' || key == 'i') && (showInstructions == false)) {
     showInstructions = true;
   } 
+
+
   //Note: .remove & .add combined in .set 
 
   //LeftPaddleMove (0)
-  //Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
+  Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
   if (key == CODED && key == 'W' || key == 'w') {
-    //shapes.get(0)
-    Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
     paddleLeft.moveUp();
     shapes.set(1, paddleLeft);
   }//end LeftUp
   if (key == CODED && key == 'S' || key == 's') {
-    Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
     paddleLeft.moveDown();
     shapes.set(1, paddleLeft);
   }//end LeftDown
-  if (key == CODED && key == 'D' || key == 'D') {
-    Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
+  if (key == CODED && key == 'D' || key == 'd') {
     paddleLeft.stopPaddle();
     shapes.set(1, paddleLeft);
   }//end LeftStop

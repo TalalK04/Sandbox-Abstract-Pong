@@ -15,8 +15,10 @@ class Rectangle extends Shape {
   }
   //Methods
   void draw() {
-    if (moveUp = true) y -= paddleSpd;
-    if (moveDown = true) y += paddleSpd;
+    if (moveUp == true) y -= paddleSpd;
+    if (moveDown == true) y += paddleSpd;
+    if (y <= height*0) y = height*0;
+    if ((y+h) >= height) y = height-h;
     fill(colourDayMode);
     rect(x, y, w, h);
     fill(resetNightMode);
@@ -37,9 +39,10 @@ class Rectangle extends Shape {
   color DayModeGetter() {
     return colourDayMode;
   }
-  color resetNightModeGetter(){
+  color resetNightModeGetter() {
     return resetNightMode;
   }
+  
 
   void moveUp() {
     moveUp = true;
