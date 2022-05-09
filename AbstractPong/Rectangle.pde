@@ -3,7 +3,12 @@ class Rectangle extends Shape {
   //Global Varibales
   color colourDayMode, resetNightMode;
   boolean moveUp, moveDown;
+  boolean screenSaver = false;
+  boolean twoPlayer = false;
+  boolean singlePlayer = false;
   int paddleSpd;
+  boolean chooseMode = false;
+  boolean leftMode = false, rightMode = false;
   //Constructor
   Rectangle(float x, float y, float w, float h, color colourDayParameter, color resetNightParameter) {
     super(x, y, w, h);
@@ -15,9 +20,12 @@ class Rectangle extends Shape {
   }
   //Methods
   void draw() {
+    //if (moveUp == true && singlePlayer == true) shapes.get(1).y -= paddleSpd;
+    //if (moveDown == true && singlePlayer == true) shapes.get(1).y += paddleSpd;
     if (moveUp == true) y -= paddleSpd;
     if (moveDown == true) y += paddleSpd;
-    if (y <= height*0) y = height*0;
+    //if (moveUp == true && screenSaver == true) y = shapes.get(3).y - h*1/2;
+    //if (moveDown == true && screenSaver == true) y = shapes.get(3).y - h*1/2;
     if ((y+h) >= height) y = height-h;
     fill(colourDayMode);
     rect(x, y, w, h);
@@ -42,7 +50,12 @@ class Rectangle extends Shape {
   color resetNightModeGetter() {
     return resetNightMode;
   }
-  
+  boolean twoPlayerGetter () {
+    return twoPlayer;
+  }
+  boolean singlePlayerGetter () {
+    return singlePlayer;
+  }
 
   void moveUp() {
     moveUp = true;

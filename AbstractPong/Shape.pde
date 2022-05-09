@@ -25,4 +25,7 @@ abstract class Shape {
   abstract float hGetter();
   abstract color DayModeGetter();
   abstract color resetNightModeGetter();
+  abstract boolean twoPlayerGetter ();
+  abstract boolean singlePlayerGetter ();
+   
 }// end Shape

@@ -4,7 +4,7 @@ class Circle extends Shape {
   int xSpeed, ySpeed, xDirection, yDirection;
   color colourDayMode, resetNightMode, colourScoreBoard;
   boolean leftGoal = false, rightGoal = false;
-
+  boolean screenSaver = false, twoPlayer = false, singlePlayer = false;
   //Constructor
   Circle(float x, float y, float w, float h, color colourDayParameter, color resetNightParameter) {
     super(x, y, w, h);
@@ -14,7 +14,6 @@ class Circle extends Shape {
     while (ySpeed>-2 && ySpeed<2) ySpeed = int(random( -3, 3));
     xDirection = int ( random (width/width, width/width*5) );
     yDirection = int ( random (height/height, height/height*5) );
-  
   }//end Constructor
 
   //Methods
@@ -76,6 +75,13 @@ class Circle extends Shape {
   color resetNightModeGetter() {
     return resetNightMode;
   }
+  boolean twoPlayerGetter () {
+    return twoPlayer;
+  }
+  boolean singlePlayerGetter () {
+    return singlePlayer;
+  }
+
 
   void bounce() {
     //bounceWall

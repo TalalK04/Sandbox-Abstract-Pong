@@ -5,6 +5,7 @@ boolean showInstructions = true;
 Shape instructions = new Shape (0, 0, 300, 300) {
   //Global Variables
   color colourDayMode, resetNightMode;
+  boolean twoPlayer, singlePlayer;
   //No Constructor Needed
   void draw() {
     fill(#FFFFFF); //white
@@ -32,6 +33,12 @@ Shape instructions = new Shape (0, 0, 300, 300) {
   }
   color resetNightModeGetter() {
     return resetNightMode;
+  }
+  boolean twoPlayerGetter () {
+    return twoPlayer;
+  }
+  boolean singlePlayerGetter () {
+    return singlePlayer;
   }
 }
 ; //Necessary Code
@@ -89,48 +96,70 @@ void draw() {
 //Annonymous Class
 void keyPressed() {
   //Instructions: Instructions, Features, and Hints for easter Eggs
+  //Note: .remove & .add combined in .set 
 
-  if ((key == CODED && key == 'P' || key == 'p') && (showInstructions == true)) {
+  if ((key == CODED && key == 'M' || key == 'm') && (showInstructions == true)) {
     showInstructions = false;
   }  
   if ((key == CODED && key == 'I' || key == 'i') && (showInstructions == false)) {
     showInstructions = true;
-  } 
+  }
 
-
-  //Note: .remove & .add combined in .set 
+  Rectangle paddle = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
+  if (key == 'P'|| key == 'p') paddle.singlePlayer = true;
+  if (key == 'T'|| key == 't') paddle.twoPlayer = true;
+  if (key == 'C'|| key == 'c') paddle.screenSaver = true;
 
   //LeftPaddleMove (0)
   Rectangle paddleLeft = new Rectangle (shapes.get(1).x, shapes.get(1).y, shapes.get(1).w, shapes.get(1).h, shapes.get(1).DayModeGetter(), shapes.get(1).resetNightModeGetter());
-  if (key == CODED && key == 'W' || key == 'w') {
+  if ( (key == CODED && key == 'W' || key == 'w') && (paddleLeft.singlePlayerGetter() == true || paddleLeft.twoPlayerGetter() == true) ) {
     paddleLeft.moveUp();
     shapes.set(1, paddleLeft);
   }//end LeftUp
-  if (key == CODED && key == 'S' || key == 's') {
+  if ( (key == CODED && key == 'S' || key == 's') && (paddleLeft.singlePlayerGetter() == true || paddleLeft.twoPlayerGetter() == true) ) {
     paddleLeft.moveDown();
     shapes.set(1, paddleLeft);
   }//end LeftDown
-  if (key == CODED && key == 'D' || key == 'd') {
+  if ( (key == CODED && key == 'D' || key == 'd') && (paddleLeft.singlePlayerGetter() == true || paddleLeft.twoPlayerGetter() == true) ) {
     paddleLeft.stopPaddle();
     shapes.set(1, paddleLeft);
   }//end LeftStop
-
+//LeftPaddle Difficulty
+  if ((paddleLeft.paddleSpd == 0) && (key == 'e'|| key == 'E')) { //easy
+    paddleLeft.paddleSpd = 2;
+    paddleLeft.leftMode = true;
+  } else if ((paddleLeft.paddleSpd == 0) && (key == 'm'|| key == 'M')) { //medium
+    paddleLeft.paddleSpd = 5;
+    paddleLeft.leftMode = true;
+  } else if ((paddleLeft.paddleSpd == 0) && (key == 'h'|| key == 'H')) { //hard
+    paddleLeft.paddleSpd = 10;
+    paddleLeft.leftMode = true;
+  }
+  //
   //RightPaddleMove (1)
-  //Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
-  if (key == CODED && keyCode == UP) {
-    Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
+  Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
+  if ((key == CODED && keyCode == UP) && paddleRight.twoPlayerGetter() == true) {  
     paddleRight.moveUp();
     shapes.set(2, paddleRight);
-  }
-  if (key == CODED && keyCode == DOWN) {
-    Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
+  }//end RightUp
+  if ((key == CODED && keyCode == DOWN) && paddleRight.twoPlayerGetter() == true) {
     paddleRight.moveDown();
     shapes.set(2, paddleRight);
-  }
-  if (key == CODED && keyCode == LEFT) {
-    Rectangle paddleRight = new Rectangle (shapes.get(2).x, shapes.get(2).y, shapes.get(2).w, shapes.get(2).h, shapes.get(2).DayModeGetter(), shapes.get(2).resetNightModeGetter());
+  }//end RightDown
+  if ((key == CODED && keyCode == LEFT) && paddleRight.twoPlayerGetter() == true) {
     paddleRight.stopPaddle();
     shapes.set(2, paddleRight);
+  }//end RightStop
+  //RightPaddle Difficulty
+    if ((paddleRight.paddleSpd == 0) && (key == '1')) { //easy
+    paddleRight.paddleSpd = 2;
+    paddleRight.rightMode = true;
+  } else if ((paddleRight.paddleSpd == 0) && (key == '2')) { //medium
+    paddleRight.paddleSpd = 5;
+    paddleRight.rightMode = true;
+  } else if ((paddleRight.paddleSpd == 0) && (key == '3')) { //hard
+    paddleRight.paddleSpd = 10;
+    paddleRight.rightMode = true;
   }
 }//end keyPressed
 
