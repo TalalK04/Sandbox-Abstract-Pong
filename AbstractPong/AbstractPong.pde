@@ -2,7 +2,7 @@
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 boolean showInstructions = true;
 //Annonoymous Class, one time object
-Shape instructions = new Shape (0, 0, 300, 300) {
+Shape instructions = new Shape (50, 50, 1100, 900) {
   //Global Variables
   color colourDayMode, resetNightMode;
   boolean twoPlayer, singlePlayer;
@@ -11,6 +11,7 @@ Shape instructions = new Shape (0, 0, 300, 300) {
     fill(#FFFFFF); //white
     rect(x, y, w, h); //background for instructions menu
     //Text Code Here
+    instructionsText();
     fill(#FFFFFF); //reset white
   }//end draw
   //Methods for Possible Text Drawing
@@ -74,7 +75,9 @@ void setup() {
   //shapes.add(rightScore); //Element 4, rightSocre
   //shapes.add(leftScore); //Element 5, leftSocre
 
-  //Reminder: ALL local objects are deleted, "Garbage Heap collected"
+  //Reminder: ALL local objects are deleted, "Garbage Heap collected"\
+  println("press m once you've read instructions");
+  println("press i to take a look at the instructions again");
 }//end setup
 
 void draw() {
@@ -82,6 +85,7 @@ void draw() {
   //for (Shape s : shapes) {
   //  s.draw();
   //}
+
   if (showInstructions == true) {
     shapes.get(0).draw();
   } 
@@ -123,7 +127,7 @@ void keyPressed() {
     paddleLeft.stopPaddle();
     shapes.set(1, paddleLeft);
   }//end LeftStop
-//LeftPaddle Difficulty
+  //LeftPaddle Difficulty
   if ((paddleLeft.paddleSpd == 0) && (key == 'e'|| key == 'E')) { //easy
     paddleLeft.paddleSpd = 2;
     paddleLeft.leftMode = true;
@@ -150,7 +154,7 @@ void keyPressed() {
     shapes.set(2, paddleRight);
   }//end RightStop
   //RightPaddle Difficulty
-    if ((paddleRight.paddleSpd == 0) && (key == '1')) { //easy
+  if ((paddleRight.paddleSpd == 0) && (key == '1')) { //easy
     paddleRight.paddleSpd = 2;
     paddleRight.rightMode = true;
   } else if ((paddleRight.paddleSpd == 0) && (key == '2')) { //medium
