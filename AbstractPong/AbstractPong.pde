@@ -89,7 +89,6 @@ void draw() {
   for ( int i=1; i<shapes.size(); i++ ) {
     if (showInstructions == false) {
       shapes.get(i).draw();
-      println("here", i);
     }
   }
 }//end draw
