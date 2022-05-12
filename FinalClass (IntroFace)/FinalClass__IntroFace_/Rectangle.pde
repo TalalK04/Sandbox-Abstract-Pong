@@ -1,11 +1,11 @@
-class Rectangle extends Shape {
-  //Global Variables
-  //
-  //Constructor
-  rect();
+//class Rectangle extends Shape {
+//  //Global Variables
+//  //
+//  //Constructor
+//  rect();
 
-  void draw() {
-  }//end draw
+//  void draw() {
+//  }//end draw
 
-  //Common Methods
-}//end Rectangle
+//  //Common Methods
+//}//end Rectangle
