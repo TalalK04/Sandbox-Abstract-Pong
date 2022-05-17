@@ -3,13 +3,15 @@ class Square extends Circle {
   float side;
   //
   //Constructor
-  Square(float x, float y, float side){
-   super(x, y, side);
-   this.side = side;
+  Square(float x, float y, float side) {
+    super(x, y, side);
+    this.side = side;
   }
 
   void draw() {
-    square(x,y,side);
+    fillCode();
+    square(x, y, side);
+    fillWhite(); //reset to white colour (best pratice)
   }//end draw
 
   //Common Methods

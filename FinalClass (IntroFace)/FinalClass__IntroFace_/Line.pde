@@ -10,7 +10,9 @@ class Line extends Point {
   }//end Constructor
 
   void draw() {
+    fillCode();
     line(x, y, ptX, ptY);
+    fillWhite(); //reset to white colour (best pratice)
   }//end draw
 
   //Common Methods

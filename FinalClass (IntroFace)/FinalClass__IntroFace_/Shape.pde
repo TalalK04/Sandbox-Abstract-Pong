@@ -3,12 +3,11 @@ abstract class Shape {
   float x, y;
   //
   //Constructor: ellipse(), circle(), square(), rect(), line(), point()
-  Shape(float xParameter, float yParameter){
-  this.x = xParameter;
-  this.y = yParameter;
+  Shape(float xParameter, float yParameter) {
+    this.x = xParameter;
+    this.y = yParameter;
   }
 
   abstract void draw();
-
-  //Common Methods
+  abstract public void fillWhite();  //Common Methods
 }//end Shape
