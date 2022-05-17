@@ -6,13 +6,18 @@ class Ellipse extends Point {
     super(x, y);
     this.xDiameter = xDiameter;
     this.yDiameter = yDiameter;
-  }//end Constructor
+  }//End Constructor
 
-  void draw() {
+  final void draw() {
     fillCode();
     ellipse(x, y, xDiameter, yDiameter);
     fillWhite(); //reset to white colour (best pratice)
   }//end draw
 
   //Common Methods
+  //
+  final color fillColour (color colour) {
+    return color (0, 0, 0);
+  }//end fillColour
+  
 }//end Ellipse

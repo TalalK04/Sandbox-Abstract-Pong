@@ -15,4 +15,8 @@ class Square extends Circle {
   }//end draw
 
   //Common Methods
+   public color fillColour (color colour) {
+    return color (0, 0, 0); //Not night mode, "hint hint"
+  }//end fillColour
+  
 }//end Square

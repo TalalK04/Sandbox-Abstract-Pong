@@ -10,7 +10,7 @@ class Point extends Shape {
   void draw() {
     stroke(255); //Grey Scale
     point(x, y);
-    stroke(0); //Grey Scale
+    stroke(0); //Grey Scale, affects the line class too
   }//end draw
 
   //Common Methods

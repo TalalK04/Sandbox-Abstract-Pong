@@ -15,4 +15,7 @@ class Rectangle extends Square {
   }//end draw
 
   //Common Methods
+    final public color fillColour (color colour) {
+    return color (0, colour, 0); //Not night mode, "hint hint"
+  }//end fillColour
 }//end Rectangle

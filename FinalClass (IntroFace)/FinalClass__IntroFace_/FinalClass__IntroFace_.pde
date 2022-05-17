@@ -21,12 +21,16 @@ void setup() {
   Ellipse e = new Ellipse(x, y, xDiameter, yDiameter);
   Square s = new Square(x, y, side); 
   Rectangle r = new Rectangle(x, y, side, sideY); 
+  Ball b = new Ball (x+width*1/10, y, xDiameter, yDiameter);
+  Hat h = new Hat(x+width*1/2, y-height*1/2, side-width*1/6, sideY); 
   shapes.add(c);
   shapes.add(l);
   shapes.add(p);
   shapes.add(e);
   shapes.add(s);
   shapes.add(r);
+  shapes.add(h);
+  shapes.add(b);
 }//end setup
 
 void draw() {
