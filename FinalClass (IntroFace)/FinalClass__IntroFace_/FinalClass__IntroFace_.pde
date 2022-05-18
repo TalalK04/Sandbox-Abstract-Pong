@@ -22,7 +22,7 @@ void setup() {
   Square s = new Square(x, y, side); 
   Rectangle r = new Rectangle(x, y, side, sideY); 
   Ball b = new Ball (x+width*1/10, y, xDiameter, yDiameter);
-  Hat h = new Hat(x+width*1/2, y-height*1/2, side-width*1/6, sideY); 
+  Hat h = new Hat(x-width*1/10, y-height*1/4, side, sideY); 
   shapes.add(c);
   shapes.add(l);
   shapes.add(p);

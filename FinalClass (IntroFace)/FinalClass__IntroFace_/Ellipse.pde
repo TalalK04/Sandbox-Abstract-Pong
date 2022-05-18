@@ -1,22 +1,21 @@
-class Ellipse extends Point {
+private class Ellipse extends Circle {
   //Global Variables
-  float xDiameter, yDiameter;
+  public float yDiameter;
   //Constructor
-  Ellipse(float x, float y, float xDiameter, float yDiameter) {
-    super(x, y);
-    this.xDiameter = xDiameter;
+  Ellipse(float x, float y, float diameter, float yDiameter) {
+    super(x, y, diameter);
     this.yDiameter = yDiameter;
   }//End Constructor
 
-  final void draw() {
+  final public void draw() {
     fillCode();
-    ellipse(x, y, xDiameter, yDiameter);
+    ellipse(x, y, diameter, yDiameter);
     fillWhite(); //reset to white colour (best pratice)
   }//end draw
 
   //Common Methods
   //
-  final color fillColour (color colour) {
+  final public color fillColour (color colour) {
     return color (0, 0, 0);
   }//end fillColour
   

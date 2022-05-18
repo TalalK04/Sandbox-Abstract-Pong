@@ -1,9 +1,9 @@
-class Hat extends Ellipse {
+private class Hat extends Rectangle {
   //Global Variables
 
   //Constructor
-  Hat(float x, float y, float side, float sideY) {
-    super( x, y, side, sideY);
+  private Hat(float x, float y, float side, float sideY) {
+    super(x, y, side, sideY);
   }//End Constructor
   
 

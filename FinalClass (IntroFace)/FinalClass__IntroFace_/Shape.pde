@@ -1,13 +1,13 @@
-abstract class Shape {
+abstract private class Shape {
   //Global Variables
-  float x, y;
+  public float x, y;
   //
   //Constructor: ellipse(), circle(), square(), rect(), line(), point()
-  Shape(float xParameter, float yParameter) {
+  private Shape(float xParameter, float yParameter) {
     this.x = xParameter;
     this.y = yParameter;
   }
 
-  abstract void draw();
-  abstract public void fillWhite();  //Common Methods
+  abstract public void draw();
+  //abstract public void fillWhite();  //Common Methods
 }//end Shape

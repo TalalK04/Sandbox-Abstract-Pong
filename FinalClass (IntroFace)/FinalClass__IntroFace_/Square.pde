@@ -1,14 +1,14 @@
-class Square extends Circle {
+private class Square extends Point {
   //Global Variables
-  float side;
+  public float side;
   //
   //Constructor
-  Square(float x, float y, float side) {
-    super(x, y, side);
+  private Square(float x, float y, float side) {
+    super(x, y);
     this.side = side;
   }
 
-  void draw() {
+  public void draw() {
     fillCode();
     square(x, y, side);
     fillWhite(); //reset to white colour (best pratice)
@@ -16,7 +16,7 @@ class Square extends Circle {
 
   //Common Methods
    public color fillColour (color colour) {
-    return color (0, 0, 0); //Not night mode, "hint hint"
+    return color (0, 0, colour); //Not night mode, "hint hint"
   }//end fillColour
   
 }//end Square

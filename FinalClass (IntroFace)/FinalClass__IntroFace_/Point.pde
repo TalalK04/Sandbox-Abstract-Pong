@@ -1,26 +1,26 @@
-class Point extends Shape {
+private class Point extends Shape {
   //Global Variables
-  color colour = 255;
+ private color colour = 255;
   //
   //Constructor
-  Point (float x, float y) {
+  private Point (float x, float y) {
     super(x, y);
   }//end Constructor
 
-  void draw() {
+  public void draw() {
     stroke(255); //Grey Scale
     point(x, y);
     stroke(0); //Grey Scale, affects the line class too
   }//end draw
 
   //Common Methods
-  void fillCode() {
+ final public void fillCode() {
     fill ( fillColour (colour) );
   }//end fillCode
-  void fillWhite() {
+  final public void fillWhite() {
     fill ( fillColour(colour) );
   }//end fillWhite
-  color fillColour (color colour) {
+  public color fillColour (color colour) {
     return color (0, 0, 0);
   }//end fillColour
 }//end Circle
