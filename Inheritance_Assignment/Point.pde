@@ -1,4 +1,4 @@
-abstract class Point extends Shape{
+class Point extends Shape{
   //Global Variables
   
   //Constructor

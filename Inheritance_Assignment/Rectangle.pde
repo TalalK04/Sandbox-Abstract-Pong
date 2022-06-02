@@ -1,4 +1,4 @@
-abstract class Rectangle extends Ellipse{
+class Rectangle extends Ellipse{
   //Global Variables
   float sideY;
   float sideX;

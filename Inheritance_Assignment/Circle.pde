@@ -1,4 +1,4 @@
-abstract class Circle extends Point{
+class Circle extends Point{
   //Global Variables
   float diameterX;
   //Constructor
