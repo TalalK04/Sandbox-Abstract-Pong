@@ -1,3 +1,8 @@
+/*Inheritance:
+Shape - Point - Line
+Shape - Point - Circle - Ellipse - Ball
+Shape - Point - Square - Rectangle - Hat
+*/
 //Gloabl Variables
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 color white = 255;

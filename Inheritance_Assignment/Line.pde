@@ -1,4 +1,4 @@
-class Line extends Shape {
+class Line extends Point {
   //Global Variables
   float ptX, ptY;
   //

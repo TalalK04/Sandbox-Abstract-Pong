@@ -11,5 +11,7 @@ class Point extends Shape{
   }//end draw
   
   //Common Methods
-  
+    public color stroke(){
+    return 
+  }
 }//end Point

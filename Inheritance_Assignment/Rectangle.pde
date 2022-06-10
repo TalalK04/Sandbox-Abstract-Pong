@@ -12,4 +12,5 @@ class Rectangle extends Ellipse{
   }//end draw
 
   //Common Methods
+
 }//end Circle

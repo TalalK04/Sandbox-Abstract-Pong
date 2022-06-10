@@ -1,4 +1,4 @@
-abstract class Square extends Circle {
+class Square extends Circle {
   //Global Variables
   float side;
   //
