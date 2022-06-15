@@ -1,3 +1,6 @@
+//Shape - Point - Line - Ellipse - Rectangle
+//Shape - Point - Circle - Square 
+
 class Square extends Circle {
   //Global Variables
   float side;
@@ -9,11 +12,13 @@ class Square extends Circle {
   }
 
   void draw() {
+    strokeLine();
     square(x, y, side);
   }//end draw
 
   //Common Methods
-  color fillColour (color colour) {
-    return color (0, 0, colour); //Not night mode, "hint hint"
-  }//end fillColour
+  public void strokeLine(){
+    strokeLine = 2;
+  strokeWeight(strokeLine);
+}
 }//end Square

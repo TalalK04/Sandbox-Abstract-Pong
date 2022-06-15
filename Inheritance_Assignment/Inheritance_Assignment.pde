@@ -12,6 +12,7 @@ void setup() {
   float diameterY = height*3/4;
   float ptX = x-width*1/30;
   float ptY = y+height*1/10;
+  float side = width*1/25;
 
   Ellipse face =  new Ellipse(x, y, diameterX, diameterY);
   Ellipse leftEye = new Ellipse(x-diameterX*1/5, y-diameterY*1/9, diameterX*1/5, diameterY*1/10);
@@ -32,6 +33,8 @@ void setup() {
   Ellipse rightEar = new Ellipse (width-width*1/6, height*1/2.2, width*1/10, height*1/4.5);
   Line leftStick = new Line(x-width*1/4.75, (y*1/1.4)+diameterY*1/14, width*1/5, height*1/2.75);
   Line rightStick = new Line((x+width*1/20)+diameterX*1/4, (y*1/1.4)+diameterY*1/14, width-width*1/5, height*1/2.75);
+  Square leftEarring = new Square (x*1/4, y*1.1, side);
+  Square rightEarring = new Square (width-(x*1/3), y*1.1, side);
   shapes.add(leftEar);
   shapes.add(rightEar);
   shapes.add(face);
@@ -51,6 +54,8 @@ void setup() {
   shapes.add(topNosePiece);
   shapes.add(leftStick);
   shapes.add(rightStick);
+  shapes.add(leftEarring);
+  shapes.add(rightEarring);
 }//end setup
 
 void draw() {

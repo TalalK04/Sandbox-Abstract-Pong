@@ -1,3 +1,6 @@
+//Shape - Point - Line - Ellipse - Rectangle
+//Shape - Point - Circle - Square 
+int strokeLine = 10;
 class Point extends Shape{
   //Global Variables
   
@@ -7,11 +10,13 @@ class Point extends Shape{
   }//end Constructor
   
   void draw(){
+    strokeLine();
     point(x, y);
   }//end draw
   
   //Common Methods
-    public color stroke(){
-    return 
-  }
+public void strokeLine(){
+  strokeWeight(strokeLine);
+}
+
 }//end Point

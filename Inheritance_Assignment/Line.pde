@@ -1,3 +1,6 @@
+//Shape - Point - Line - Ellipse - Rectangle
+//Shape - Point - Circle - Square 
+
 class Line extends Point {
   //Global Variables
   float ptX, ptY;
@@ -10,9 +13,13 @@ class Line extends Point {
   }//end Constructor
 
   void draw() {
+    strokeLine();
     line(x, y, ptX, ptY);
   }//end draw
 
   //Common Methods
-  
+  public void strokeLine(){
+    strokeLine = 4;
+  strokeWeight(strokeLine);
+}
 }//end Line

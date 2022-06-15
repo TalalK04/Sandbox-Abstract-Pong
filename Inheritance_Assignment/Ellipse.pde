@@ -1,3 +1,6 @@
+//Shape - Point - Line - Ellipse - Rectangle
+//Shape - Point - Circle - Square 
+
 class Ellipse extends Line {
   //Global Variables
   float diameterY;
@@ -10,8 +13,13 @@ class Ellipse extends Line {
   }//end Constructor
 
   void draw() {
+    strokeLine();
     ellipse(x, y, diameterX, diameterY);
   }//end draw
 
   //Common Methods
+    public void strokeLine(){
+    strokeLine = 5;
+  strokeWeight(strokeLine);
+}
 }//end Circle

@@ -1,3 +1,6 @@
+//Shape - Point - Line - Ellipse - Rectangle
+//Shape - Point - Circle - Square 
+
 abstract class Shape {
   //Global Variables
   public float x, y;
