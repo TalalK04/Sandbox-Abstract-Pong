@@ -13,12 +13,16 @@ class Square extends Circle {
 
   void draw() {
     strokeLine();
+    strokeColour();
     square(x, y, side);
   }//end draw
 
   //Common Methods
-  public void strokeLine(){
+  public void strokeLine() {
     strokeLine = 2;
-  strokeWeight(strokeLine);
-}
+    strokeWeight(strokeLine);
+  }
+   public void strokeColour(){
+    stroke(strokeColour-100);
+  }
 }//end Square

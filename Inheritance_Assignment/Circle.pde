@@ -1,7 +1,7 @@
 //Shape - Point - Line - Ellipse - Rectangle
 //Shape - Point - Circle - Square 
 
-class Circle extends Point{
+class Circle extends Point {
   //Global Variables
   float diameterX;
   //Constructor
@@ -9,15 +9,19 @@ class Circle extends Point{
     super(x, y);
     this.diameterX = diameterX;
   }//end Constructor
-  
-  void draw(){
+
+  void draw() {
     strokeLine();
+    strokeColour();
     circle(x, y, diameterX);
   }//end draw
-  
+
   //Common Methods
-    public void strokeLine(){
+  public void strokeLine() {
     strokeLine = 4;
-  strokeWeight(strokeLine);
-}
+    strokeWeight(strokeLine);
+  }
+   public void strokeColour(){
+    stroke(strokeColour-205, strokeColour-55, strokeColour);
+  }
 }//end Circle

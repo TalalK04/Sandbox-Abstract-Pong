@@ -14,12 +14,27 @@ class Ellipse extends Line {
 
   void draw() {
     strokeLine();
+    strokeColour();
+    fillColour();
     ellipse(x, y, diameterX, diameterY);
   }//end draw
 
   //Common Methods
-    public void strokeLine(){
+
+  public void strokeLine() {
     strokeLine = 5;
-  strokeWeight(strokeLine);
-}
+    strokeWeight(strokeLine);
+  }
+
+  public void strokeColour() {
+    if (y>height*1/2) {
+      stroke(strokeColour, 0, 0);
+    } else stroke(strokeColour-105, strokeColour-155, 0);
+  }//end strokeColour
+
+  public void fillColour() {
+    if (y>height*1/2) {
+      fill(fillColour, 0, 0);
+    } else fill(fillColour-105, fillColour-155, 0);
+  }
 }//end Circle

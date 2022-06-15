@@ -12,5 +12,5 @@ abstract class Shape {
   }
 
   abstract public void draw();
- //Common Methods
+  //Common Methods
 }//end Shape
