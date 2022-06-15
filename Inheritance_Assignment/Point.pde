@@ -1,31 +1,60 @@
+/* Inheritance Map
 //Shape - Point - Line - Ellipse - Rectangle
-//Shape - Point - Circle - Square 
-int strokeLine = 10;
-int strokeColour = 255;
-int fillColour = strokeColour;
-class Point extends Shape {
-  //Global Variables
+//Shape - Point - Circle - Square
+*/
 
+private class Point extends Shape {
+  //Global Variables
+  private int weight;
+  private color strokeColour = 255;
+  public color fillColour = 255;
   //Constructor
-  Point(float x, float y) {
+  private Point(float x, float y) {
     super(x, y);
-  }//end Constructor
+  }//End Constructor
 
   void draw() {
-    fillColour();
-    strokeLine();
-    strokeColour();
+    fillShapes();
+    fillStroke();
+    fillWeight();
     point(x, y);
-  }//end draw
+    fillWhite();
+  }//End draw
 
   //Common Methods
-  public void strokeLine() {
-    strokeWeight(strokeLine);
-  }
-  public void strokeColour(){
-    stroke(0, 0, strokeColour);
-  }
-  public void fillColour(){
-    fill(fillColour);
-  }
-}//end Point
+
+  final public void fillShapes() {
+    fill ( fillColour (fillColour) );
+  }//End fillShapes
+
+  final public void fillWhite() {
+    fill ( fillColour(fillColour) );
+  }//End fillWhite
+  
+  final public void fillStroke() {
+    stroke ( strokeColour(strokeColour) );
+  }//End fillStroke
+  
+  final public void fillWeight() {
+    strokeWeight (fillWeight(weight));
+  }//End fillWeight
+
+  public color fillColour (color fillColour) {
+    return color (0, 0, 0);
+  }//End fillColour
+
+  public color strokeColour (color strokeColour) {
+    if (y<height*1/2) {
+      return 255;
+    } else {
+      return color (0, 0, 0);
+    }
+  }//End strokeColour
+
+  public int fillWeight (int weight) {
+    if (y>height*1/2) {
+      return weight = 5;
+    } else return weight = 10;
+  }//End fillWeight
+  
+}//End Point

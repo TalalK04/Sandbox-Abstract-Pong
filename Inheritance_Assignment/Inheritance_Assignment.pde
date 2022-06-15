@@ -1,5 +1,7 @@
+/* Inheritance Map
 //Shape - Point - Line - Ellipse - Rectangle
-//Shape - Point - Circle - Square 
+//Shape - Point - Circle - Square
+*/
 
 ArrayList<Shape> shapes = new ArrayList<Shape>();
 
@@ -28,16 +30,20 @@ void setup() {
   Point pRightEye = new Point(x+diameterX*1/5, y-diameterY*1/9);
   Rectangle leftLense = new Rectangle(x-width*1/4.75, y*1/1.4, diameterX*1/4, diameterY*1/7);
   Rectangle rightLense = new Rectangle(x+width*1/20, y*1/1.4, diameterX*1/4, diameterY*1/7);
-  Line topNosePiece = new Line((x-width*1/4.75)+diameterX*1/4, (y*1/1.4)+diameterY*1/14, x+width*1/20, (y*1/1.4+diameterY*1/14));
+  Line nosePiece = new Line((x-width*1/4.75)+diameterX*1/4, (y*1/1.4)+diameterY*1/14, x+width*1/20, (y*1/1.4+diameterY*1/14));
   Ellipse leftEar = new Ellipse (width*1/6, height*1/2.2, width*1/10, height*1/4.5);
   Ellipse rightEar = new Ellipse (width-width*1/6, height*1/2.2, width*1/10, height*1/4.5);
   Line leftStick = new Line(x-width*1/4.75, (y*1/1.4)+diameterY*1/14, width*1/5, height*1/2.75);
   Line rightStick = new Line((x+width*1/20)+diameterX*1/4, (y*1/1.4)+diameterY*1/14, width-width*1/5, height*1/2.75);
   Square leftEarring = new Square (x*1/4, y*1.1, side);
   Square rightEarring = new Square (width-(x*1/3), y*1.1, side);
+  Point rightPierce = new Point ((width-(x*1/3.1))+side*1/10, y*1.1+side*1/5);
+  Point leftPierce = new Point (x*1/4 + side*8/10, y*1.1+side*1/5);
   shapes.add(leftEar);
   shapes.add(rightEar);
   shapes.add(face);
+  shapes.add(leftStick);
+  shapes.add(rightStick);
   shapes.add(leftLense);
   shapes.add(rightLense);
   shapes.add(leftEye);
@@ -51,23 +57,23 @@ void setup() {
   shapes.add(rightPupil);
   shapes.add(pLeftEye);
   shapes.add(pRightEye);
-  shapes.add(topNosePiece);
-  shapes.add(leftStick);
-  shapes.add(rightStick);
+  shapes.add(nosePiece);
   shapes.add(leftEarring);
   shapes.add(rightEarring);
-}//end setup
+  shapes.add(leftPierce);
+  shapes.add(rightPierce);
+}//End setup
 
 void draw() {
-  background(255);
+  background(144, 158, 162);
   for (Shape s : shapes) {
     s.draw();
-  }//end FOR
-}//end setup
+  }//End FOR
+}//End setup
 
 void keyPressed() {
-}//end keyPressed
+}//End keyPressed
 
 void mousePressed() {
   println("X =", mouseX, "AND Y =", mouseY);
-}//end keyPressed
+}//End keyPressed

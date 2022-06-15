@@ -1,33 +1,43 @@
+/* Inheritance Map
 //Shape - Point - Line - Ellipse - Rectangle
-//Shape - Point - Circle - Square 
+//Shape - Point - Circle - Square
+*/
 
-class Rectangle extends Ellipse {
+final private class Rectangle extends Ellipse {
   //Global Variables
-  float sideY;
-  float sideX;
+  public float sideY;
+  public float sideX;
   //Constructor
-  Rectangle(float x, float y, float sideX, float sideY) {
+  private Rectangle(float x, float y, float sideX, float sideY) {
     super(x, y, sideX, sideY);
-  }//end Constructor
+  }//End Constructor
 
-  void draw() {
-    fillColour();
-    strokeLine();
-    strokeColour();
+  public void draw() {
+    fillShapes();
+    fillStroke();
+    fillWeight();
     rect(x, y, diameterX, diameterY);
-  }//end draw
+    fillWhite();
+  }//End draw
 
   //Common Methods
-    public void fillColour() {
-    fill(fillColour);
-  }
-  public void strokeLine() {
-    strokeLine = 9;
-    strokeWeight(strokeLine);
-  }
-    public void strokeColour() {
-    if (x < width*1/2) {
-      stroke(strokeColour, 0, 0);
-    } else stroke(0, 0, strokeColour);
-  }
-}//end Circle
+
+ final public color fillColour (color fillColour) {
+    if (x == 0) { 
+      return 255;
+    } else if (x>width*1/2) {
+      return color (0, 0, fillColour);
+    } else return color (fillColour, 0, 0);
+  }//End fillColour()
+
+  final public color strokeColour (color strokeColour) {
+    if (x==0) {
+      return 255;
+    } else return color(0);
+  }//End strokeColour
+  
+  final public int fillWeight (int weight){
+    return weight = 9;
+  }//End fillWeight
+  
+}//End Rectangle

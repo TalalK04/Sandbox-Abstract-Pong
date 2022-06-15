@@ -1,40 +1,49 @@
+/* Inheritance Map
 //Shape - Point - Line - Ellipse - Rectangle
-//Shape - Point - Circle - Square 
+//Shape - Point - Circle - Square
+*/ 
 
-class Ellipse extends Line {
+private class Ellipse extends Line {
   //Global Variables
-  float diameterY;
-  float diameterX;
+  public float diameterY;
+  public float diameterX;
   //Constructor
-  Ellipse(float x, float y, float diameterX, float diameterY) {
+  private Ellipse(float x, float y, float diameterX, float diameterY) {
     super(x, y, diameterX, diameterY);
     this.diameterX = diameterX;
     this.diameterY = diameterY;
-  }//end Constructor
+  }//End Constructor
 
   void draw() {
-    strokeLine();
-    strokeColour();
-    fillColour();
+    fillShapes();
+    fillStroke();
+    fillWeight();
     ellipse(x, y, diameterX, diameterY);
-  }//end draw
+    fillWhite();
+  }//End draw
 
   //Common Methods
 
-  public void strokeLine() {
-    strokeLine = 5;
-    strokeWeight(strokeLine);
-  }
+  public color fillColour (color fillColour) {
+    if (y==0) {
+      return 255;
+    } else if (y>height*1/2) {
+      return color(fillColour, 0, 0);
+    } else if (y < height*1/2.2) {
+      return color(fillColour);
+    } else return color(fillColour-93, fillColour-136, fillColour-190);
+  }//End fillColour()
 
-  public void strokeColour() {
-    if (y>height*1/2) {
-      stroke(strokeColour, 0, 0);
-    } else stroke(strokeColour-105, strokeColour-155, 0);
-  }//end strokeColour
+  public color strokeColour (color strokeColour) {
+    if (x==0) {
+      return 255;
+    } else {
+      return color (0);
+    }
+  }//End strokeColour
 
-  public void fillColour() {
-    if (y>height*1/2) {
-      fill(fillColour, 0, 0);
-    } else fill(fillColour-105, fillColour-155, 0);
-  }
-}//end Circle
+  public int fillWeight (int weight) {
+    return weight = 5;
+  }//End fillWeight
+  
+}//End Ellipse

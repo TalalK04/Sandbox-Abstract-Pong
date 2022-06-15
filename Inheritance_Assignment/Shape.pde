@@ -1,7 +1,9 @@
+/* Inheritance Map
 //Shape - Point - Line - Ellipse - Rectangle
-//Shape - Point - Circle - Square 
+//Shape - Point - Circle - Square
+*/
 
-abstract class Shape {
+abstract private class Shape {
   //Global Variables
   public float x, y;
   //
@@ -9,8 +11,9 @@ abstract class Shape {
   private Shape(float xParameter, float yParameter) {
     this.x = xParameter;
     this.y = yParameter;
-  }
+  }//End Constructor
+  
 
   abstract public void draw();
-  //Common Methods
-}//end Shape
+  
+}//End Shape
