@@ -1,3 +1,8 @@
+/*Inheritance:
+Shape - Point - Line
+Shape - Point - Circle - Ellipse - Ball
+Shape - Point - Square - Rectangle - Hat
+*/
 private class Rectangle extends Square {
   //Global Variables
   float sideY;

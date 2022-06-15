@@ -1,3 +1,8 @@
+/*Inheritance:
+Shape - Point - Line
+Shape - Point - Circle - Ellipse - Ball
+Shape - Point - Square - Rectangle - Hat
+*/
 final private class Line extends Point {
   //Global Variables
   float ptX, ptY;

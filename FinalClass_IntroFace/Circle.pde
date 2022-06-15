@@ -1,3 +1,8 @@
+/*Inheritance:
+Shape - Point - Line
+Shape - Point - Circle - Ellipse - Ball
+Shape - Point - Square - Rectangle - Hat
+*/
 class Circle extends Point {
   //Global Variables
   public float diameter;
@@ -12,7 +17,7 @@ class Circle extends Point {
     circle(x, y, diameter);
     fillWhite(); //reset to white colour (best pratice)
   }//end draw
-  public color fillCoulour (color colour) {
+  public color fillColour (color colour) {
     if (colour != 255) { 
       return 255;
     } else { 

@@ -1,3 +1,8 @@
+/*Inheritance:
+Shape - Point - Line
+Shape - Point - Circle - Ellipse - Ball
+Shape - Point - Square - Rectangle - Hat
+*/
 private class Point extends Shape {
   //Global Variables
  private color colour = 255;
@@ -23,4 +28,4 @@ private class Point extends Shape {
   public color fillColour (color colour) {
     return color (0, 0, 0);
   }//end fillColour
-}//end Circle
+}//end Point
